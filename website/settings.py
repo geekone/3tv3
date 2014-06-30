@@ -1,12 +1,4 @@
-"""
-Django settings for website project.
-
-For more information on this file, see
-https://docs.djangoproject.com/en/1.6/topics/settings/
-
-For the full list of settings and their values, see
-https://docs.djangoproject.com/en/1.6/ref/settings/
-"""
+# -*- coding:utf-8 -*-
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
@@ -37,6 +29,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app',
+    'backend',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -61,12 +54,21 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
+    # 'default':{
+    #     'ENGINE':'django.db.backends.mysql',
+    #     'NAME':'mitiyu_db',
+    #     'USER':'root',
+    #     'PASSWORD':'',
+    #     'HOST':'127.0.0.1',
+    #     'PORT':'3306',
+    #     'DEFAULT_CHARSET':'utf-8'
+    # }
 }
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'zh-CN'
 
 TIME_ZONE = 'UTC'
 
@@ -81,3 +83,56 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "static"),
+    #'/var/www/static/',
+)
+
+
+TEMPLATE_DIRS = (
+     os.path.join(BASE_DIR, 'templates').replace('\\','/'),
+    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
+    # Always use forward slashes, even on Windows.
+    # Don't forget to use absolute paths, not relative paths.
+)
+
+
+# 日志配置
+# LOGGING = {
+#     'version': 1,
+#     'disable_existing_loggers': True,
+#     'formatters': {
+#         'verbose': {
+#             #'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s' #详细
+#             'format': '%(asctime)s [%(threadName)s:%(thread)d] [%(name)s:%(lineno)d] [%(levelname)s %(module)s %(process)d]- %(message)s'
+#         },
+#         'simple': {
+#             'format': '%(levelname)s %(message)s'
+#         },
+#     },
+#     'filters': {
+#     },
+#     'handlers':{  #log的处理方法
+#         'console':{
+#             'level': 'DEBUG',
+#             'class': 'logging.StreamHandler',
+#             'formatter': 'simple'
+#         },
+#         'default':{
+#             'level':'DEBUG',
+#             'class':'logging.handlers.RotatingFileHandler',
+#             'filename':os.path.join('logs/','all.log'),
+#             'maxBytes':1024*1024*5,# 5m
+#             'backupCount':5,
+#             'formatter':'verbose',
+#         }
+#     },
+#     'loggers':{
+#         'mylog':{       #定义了自己名字的log
+#             'handlers':['console','default'],
+#             'level':'DEBUG',
+#             'propagate':True
+#         }
+#     }
+# }
