@@ -5,6 +5,7 @@ from backend import views
 urlpatterns = patterns('',
     url(r'^$',views.index,name="index"),    #后台管理首页
     url(r'^categories$',views.categories),        #分类列表
+    url(r'^initdb$',views.initdb)
     # url(r'^addcategory$',views.category_add),        #添加分类
     # url(r'^movies$',views.movie_list),               #视频列表
     # url(r'^addmovie$',views.movie_add),              #添加视频

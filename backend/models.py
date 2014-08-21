@@ -25,3 +25,54 @@ class Movie(models.Model):
 		return self.title
 
 
+# OneToOneField    has one: one to one
+
+# ManyToManyField  has many : lots of A belong to B and B has many A
+
+class Engine(models.Model):
+    name = models.CharField(max_length=25)
+
+    def __unicode__(self):
+        return self.name
+
+class Car(models.Model):
+    name = models.CharField(max_length=25)
+    engine = models.OneToOneField(Engine,unique=True)
+
+    def __unicode__(self):
+        return self.name
+
+# ForeignKey  belong to: ForeignKey all in one
+class Engine2(models.Model):
+    name = models.CharField(max_length=25)
+
+    def __unicode__(self):
+        return self.name
+
+class Car2(models.Model):
+    name = models.CharField(max_length=25)
+    engine = models.ForeignKey(Engine2)
+
+    def __unicode__(self):
+        return self.name
+
+class Publisher(models.Model):
+    name = models.CharField(max_length=30)
+
+    def __unicode__(self):
+        return self.name
+
+class Author(models.Model):
+    firstname = models.CharField(max_length=30)
+
+    def __unicode__(self):
+        return self.firstname
+
+class Book(models.Model):
+    title = models.CharField(max_length=100)
+    authors = models.ManyToManyField(Author)
+    publisher = models.ForeignKey(Publisher)
+
+    def __unicode__(self):
+        return self.title
+        
