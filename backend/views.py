@@ -18,10 +18,8 @@ def categories(request):
 
 # movie all list
 def movies(request):
-	movie = Movie()
-	movie.title = "title1"
-	movie.save()
-
+	_movies = Movie.objects.all()
+	return render_to_response("backend/movies.html")
 
 
 # init database 
@@ -33,4 +31,4 @@ def initdb(request):
 	movie = Movie()
 	movie.title = "title1"
 	movie.save()
-	return 
+	return ""
