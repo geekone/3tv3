@@ -1,1 +1,7 @@
 http://getbootstrap.com
+
+django查询
+http://www.douban.com/note/301166150/
+
+django 数据关系
+http://blog.csdn.net/shangliuyan/article/details/7920037

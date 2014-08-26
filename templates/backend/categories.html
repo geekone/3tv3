@@ -1,9 +1,29 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-</head>
-<body>
-分类列表
-</body>
-</html>
+{% extends "backend/layout.html" %}
+{% block content %}
+<h4 class="sub-header">分类列表|<a href="/backend/addcategory">添加分类</a></h4>
+<div class="row">
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>#</th>
+			<th>名称</th>
+			<th>中文</th>
+			<th>操作</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for category in categories %}
+		<tr>
+			<td>{{category.id}}</td>
+			<td>{{category.name}}</td>
+			<td>{{category.cname}}</td>
+			<td>
+				<a href="/backend/delcategory/{{category.id}}">删除</a>
+				|<a href="{% url 'backend.views.category_edit' category.id %}"> EDIT</a>
+			</td>
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+</div>
+{% endblock %}

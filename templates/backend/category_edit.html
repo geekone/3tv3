@@ -1,0 +1,28 @@
+{% extends "backend/layout.html" %}
+{% block content %}
+<h4 class="sub-header">修改分类|<a href="/backend/categories">分类列表</a></h4>
+<div>
+<form class="form-horizontal" role="form" method="post">
+	 {% csrf_token %}
+	 <input type="hidden" name="categoryid" id="categoryid" value="{{category.id}}"/>
+	<div class="form-group">
+		<label for="name" class="col-md-2 control-label">Name:</label>
+		<div class="col-md-7">
+			<input type="text" name="name" class="form-control" id="name" value="{{category.name}}">
+		</div>
+	</div>
+	<div class="form-group">
+    <label for="cname" class="col-md-2 control-label">Email</label>
+    <div class="col-md-7">
+      <input type="text" name="cname" class="form-control" id="cname" value="{{category.cname}}">
+    </div>
+  </div>
+	<div class="form-group">
+		<div class="col-md-offset-3 col-md-9">
+			<button type="submit" class="btn btn-primary">修改</button>
+			<button type="button" class="btn btn-default" onclick="javascript:history.back();">取消</button>
+		</div>
+	</div>
+</form>
+</div>
+{% endblock %}
