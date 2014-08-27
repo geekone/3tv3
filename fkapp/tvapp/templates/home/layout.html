@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>首页</title>
+<link href="{{url_for('.static',filename='bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+</head>
+<body>
+<h1> layout </h1>
+<div class="container">
+	{% block body %}
+	{% endblock %}
+</body>
+</html>
